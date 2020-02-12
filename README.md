@@ -52,7 +52,7 @@ PHPMyAdmin
 
 
 ### Teste de Conexao
-''''
+````
 <?php
 
 echo 'Versão Atual do PHP: ' . phpversion();
@@ -67,4 +67,4 @@ if ($conn->connect_error) {
 }
 echo "<br /> Connected successfully";
 ?>
-''''
+````
