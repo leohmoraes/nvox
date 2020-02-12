@@ -2,7 +2,7 @@
 
 ### Building 
 
-    $ docker build -t php-server github.com/leohmoraes/nvox.git
+    $ docker build -t php56 github.com/leohmoraes/nvox.git
 
 ### Building with git clone 
 
