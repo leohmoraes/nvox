@@ -36,6 +36,7 @@ PHP and Apache
         -d php56
 
 PHPMyAdmin
+
     # acessar o banco de dados do container acima
     $ docker run \
         --name myadmin \
@@ -59,6 +60,7 @@ PHPMyAdmin
 
 
 ### Teste de Conexao
+
 ````
 <?php
 
