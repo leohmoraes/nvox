@@ -36,14 +36,21 @@ PHP and Apache
         -d php56
 
 PHPMyAdmin
-
+    # acessar o banco de dados do container acima
     $ docker run \
         --name myadmin \
         -d --link mysql57:db \
         -p 8000:80 \
-        -e PMA_HOST="172.17.0.2" \
         phpmyadmin/phpmyadmin
 
+    # acessar um outro banco de dados externo
+    $ docker run \
+        --name myadmin \
+        -d \
+        -p 8000:80 \
+        -e PMA_HOST="172.17.0.2" \
+        phpmyadmin/phpmyadmin
+        
 ## Extras
 
 #### composer install
