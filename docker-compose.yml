@@ -1,0 +1,35 @@
+# docker-compose up -d (rode nesta pasta)
+# mysqlASW
+# RUN docker-php-ext-install mysqli
+version: '3'
+services: 
+  php56:
+    container_name: php56    
+    image: php:5.6-apache
+    networks: 
+      - rede
+    volumes:
+      - ./:/var/www/html
+    working_dir: /
+    restart: always
+    ports:
+      - '80:80'
+    depends_on:
+      - mysql57
+    links:
+      - mysql57
+  mysql57:
+    container_name: mysql57
+    image: mysql:5.7
+    restart: always
+    networks: 
+      - rede
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'root'
+networks: 
+  rede: 
+    driver: bridge        
