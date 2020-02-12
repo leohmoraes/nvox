@@ -2,25 +2,25 @@
 
 ### Building 
 
-    $ docker build -t php-server github.com/davidcostadev/docker-php56-apache.git
+    $ docker build -t php-server github.com/leohmoraes/nvox.git
 
 ### Building with git clone 
 
-    $ git clone http://github.com/davidcostadev/docker-php56-apache.git
-    $ cd docker-php56-apache
-    $ docker build -t php-server docker-php56-apache
+    $ git clone github.com/leohmoraes/nvox.git
+    $ cd nvox
+    $ docker build -t php56 nvox
 
 
 ## Run
 
-    $ docker run -d -p 80:80 -v $PWD:/var/www php-server
+    $ docker run -d -p 80:80 -v $PWD:/var/www php56
 
 ## Run with PHPMySql and MySql
 
 MySql
 
     $ docker run \
-        --name mysqlserver \
+        --name mysql57 \
         -v $PWD/mysql:/var/lib/mysql \
         -p 3306:3306 \
         -e MYSQL_ROOT_PASSWORD=123 \
@@ -29,27 +29,22 @@ MySql
 PHP and Apache
 
     $ docker run \
-        --name appserver \
+        --name php56 \
         -p 80:80 \
         -v $PWD:/var/www \
-        --link mysqlserver:db \
-        -d php-server
+        --link mysql57:db \
+        -d php56
 
 PHPMyAdmin
 
     $ docker run \
         --name myadmin \
-        -d --link mysqlserver:db \
+        -d --link mysql57:db \
         -p 8000:80 \
         -e PMA_HOST="172.17.0.2" \
         phpmyadmin/phpmyadmin
 
 ## Extras
-
-#### composer create-project cakephp
-
-    $ composer create-project --prefer-dist cakephp/app davidcosta
-
 
 #### composer install
 
