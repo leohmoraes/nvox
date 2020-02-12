@@ -58,7 +58,7 @@ PHPMyAdmin
 echo 'Versão Atual do PHP: ' . phpversion();
 $servername = "mysql57";
 $username = "root";
-$password = "root";
+$password = "123";
 $conn = new mysqli($servername, $username, $password);
 
 // Check connection
